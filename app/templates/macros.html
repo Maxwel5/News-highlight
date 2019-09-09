@@ -2,7 +2,7 @@
 
     {% for news_source in news_source_list %}
         <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 news_source-card">
-            <img src="{{ news_source }}" alt="{{ news_source.title }} poster" class="img-responsive">
+            <img src="{{ news_source }}" alt="{{ news_source.title }} image" class="img-responsive">
             <li class="text-center">
                 <a href="/news_source/{{news_source.id}}">
                     {{ news_source.title|truncate(15)}}</a>
