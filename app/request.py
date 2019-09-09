@@ -1,5 +1,6 @@
 import urllib.request,json
-from .models import News
+from .models import Sources,Articles
+from datetime import datetime
 
 # Getting api key
 api_key = None
@@ -74,6 +75,14 @@ def get_articles(id):
 
         articles_object = None
         if articles_response['articles']:
+            id = article_item.get('id')
+            title = article_item.get('title')
+            illustration = article_item.get('illustration')
+            url = article_item.get('url')
+            narrator = article_item.get('narrator')
+            image = article_item.get('image')
+            date = article_item.get('date')
+            # pass
             
     return articles_object
 
@@ -95,7 +104,7 @@ def process_articles(articles_list):
 			articles_result = Articles(id,narrator,title,illustration,url,image,date)
 			articles_object.append(articles_result)
 
-    return articles_object	
+    # return articles_object	
 
 
 def search_news_sources(news_sources_name):
