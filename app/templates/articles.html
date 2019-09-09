@@ -1,29 +1,16 @@
 {% extends 'base.html'%}
-{% block content%}
-<div class="container">
-    <!-- News part -->
-    <h3> Lead Stories </h3>
-    {% for artcles_row in articles | batch(3)%}
+{% import "bootstrap/wtf.html" as wtf %}
 
-        <div class="row">
-            {% for article in articl_row %}
-            <div class="col-md-4">
-                <div class="card">
-                    <a href="{{article.url}}" target="_blank">
-                        <img src="{{article.image}}" class="img-responsive" styles="height:50px">
-                    </a>
-                    <div class="caption">
-                        <h5><a href="{{article.url}}" target="_blank">{{article .title |truncate(30)}}</a></h5>
-                        <p>{{article.illustration | truncate(70)}}</p>
-                        <a href="{{article.url}}" target="_blank">Find More</a>
-                    </div>
-                    <div class="footer">
-                        Documented on: {{article.date}}
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
+{% block content %}
+    <div class="container">
+
+        <div class="col-md-8">
+                <img src="{{article.image}}" alt="{{article.title}}" class="img-responsive">
         </div>
-    {% endfor %}
-</div>
-{%endblock%}
+        
+        <div class="col-md-4">
+                {{ wtf.quick_form(review_form) }}
+        </div>
+    
+    </div>
+{% endblock %}
