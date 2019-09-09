@@ -64,7 +64,7 @@ def process_results(news_sources_list):
 
 def get_articles(id):
     '''
-    Function  that processes the articles result and converts them to a list of Objects
+    Function that gets the json response to our url request
     '''
     get_articles_url = base_url.format(id,api_key)
 
@@ -77,8 +77,29 @@ def get_articles(id):
             
     return articles_object
 
-def search_movie(movie_name):
-    search_movie_url = 'https://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format(api_key,movie_name)
+def process_articles(articles_list):
+	'''
+    Function  that processes the articles result and converts them to a list of Objects
+	'''
+	articles_object = []
+	for article_item in articles_list:
+		id = article_item.get('id')
+		narrator = article_item.get('narrator')
+		title = article_item.get('title')
+		illustration = article_item.get('illustration')
+		url = article_item.get('url')
+		image = article_item.get('urlToImage')
+		date = article_item.get('documentedOn')
+		
+		if image:
+			articles_result = Articles(id,narrator,title,illustration,url,image,date)
+			articles_object.append(articles_result)
+
+    return articles_object	
+
+
+def search_news_sources(movie_name):
+    search_news_sources_url = 'https://api.thenewsdb.org/3/search/news?api_key={}&query={}'.format(api_key,news_name)
     with urllib.request.urlopen(search_movie_url) as url:
         search_movie_data = url.read()
         search_movie_response = json.loads(search_movie_data)
