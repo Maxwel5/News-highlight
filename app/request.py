@@ -27,39 +27,40 @@ def get_news_sources(category):
         get_news_sources_response = json.loads(get_news_sources_data)
 
 
-        movie_results = None
+        news_sources_results = None
 
-        if get_movies_response['results']:
-            movie_results_list = get_movies_response['results']
-            movie_results = process_results(movie_results_list)
+        if get_news_sources_response['results']:
+            news_sources_results_list = get_news_sources_response['results']
+            news_sources_results = process_results(news_sources_results_list)
 
 
-    return movie_results
+    return news_sources_results
 
-def process_results(movie_list):
+def process_results(news_sources_list):
     '''
-    Function  that processes the movie result and transform them to a list of Objects
+    Function  that processes the news_sources result and changes them to a list of Objects
 
     Args:
         movie_list: A list of dictionaries that contain movie details
 
     Returns :
-        movie_results: A list of movie objects
+        news_sources_results: A list of news_sources objects
     '''
-    movie_results = []
-    for movie_item in movie_list:
-        id = movie_item.get('id')
-        title = movie_item.get('original_title')
-        overview = movie_item.get('overview')
-        poster = movie_item.get('poster_path')
-        vote_average = movie_item.get('vote_average')
-        vote_count = movie_item.get('vote_count')
+    news_sources_results = []
+    for news_sources_item in news_sources_list:
+        id = news_source_item.get('id')
+        title = news_source_item.get('title')
+        illustration = news_source_item.get('illustration')
+        url = news_source_item.get('url')
+        group = news_source_item.get('group')
+        language = news_source_item.get('language')
+        nation = news_source_item.get('nation')
 
         if poster:
-            movie_object = Movie(id,title,overview,poster,vote_average,vote_count)
-            movie_results.append(movie_object)
+            news_sources_object = News_sources(id,title,language,illustration,nation,url,group)
+            news_sources_results.append(news_sources_object)
 
-    return movie_results
+    return news_sources_results
 
 def get_movie(id):
     get_movie_details_url = base_url.format(id,api_key)
