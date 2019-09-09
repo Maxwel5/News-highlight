@@ -98,15 +98,15 @@ def process_articles(articles_list):
     return articles_object	
 
 
-def search_news_sources(movie_name):
+def search_news_sources(news_sources_name):
     search_news_sources_url = 'https://api.thenewsdb.org/3/search/news?api_key={}&query={}'.format(api_key,news_name)
-    with urllib.request.urlopen(search_movie_url) as url:
-        search_movie_data = url.read()
-        search_movie_response = json.loads(search_movie_data)
+    with urllib.request.urlopen(search_news_sources_url) as url:
+        search_news_sources_data = url.read()
+        search_news_sources_response = json.loads(search_news_sources_data)
         search_movie_results = None
 
-        if search_movie_response['results']:
-            search_movie_list = search_movie_response['results']
-            search_movie_results = process_results(search_movie_list)
+        if search_news_sources_response['results']:
+            search_news_sources_list = search_news_sources_response['results']
+            search_news_sources_results = process_results(search_news_sources_list)
 
-    return search_movie_results
+    return search_news_sources_results
