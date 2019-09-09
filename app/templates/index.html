@@ -17,4 +17,27 @@
     </form>
 </div>
 
+<div class="container">
+<!-- Business News -->
+<h3> Business News Sources</h3>
+<ul>
+    {{ macro.displayMovieList(bussiness_sources)}}
+</ul>
+<!-- World News  -->
+<h3> World News Sources </h3>
+<ul>
+    {{ macro.displayMovieList(world_sources)}}
+</ul>
+<!-- Entertainment News -->
+<h3> Entertainment News Sources </h3>
+<ul>
+    {{ macro.displayMovieList(entertainment_sources)}}
+</ul>
+
+<!-- Sports News -->
+<h3> Sports News Sources </h3>
+<ul>
+    {{ macro.displayMovieList(sports_sources)}}
+</ul>
+</div>
 {%endblock%}
