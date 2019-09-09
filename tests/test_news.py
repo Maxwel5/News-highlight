@@ -22,27 +22,27 @@ class NewsSourcesTest(unittest.TestCase):
         self.assertEquals(self.new_source.url,'bbc.com')
         self.assertEquals(self.new_source.group,'general')
         self.assertEquals(self.new_source.nation,'Britain')
-        self.assertEquals(self.new_source.language,'ennlish')
+        self.assertEquals(self.new_source.language,'english')
 
 class ArticlesTest(unittest.TestCase):
     '''
-    Test Class to test the behaviour of the Movie class
+    Test Class to test the behaviour of the News_sources class
     '''
 
     def setUp(self):
         '''
         Set up method that will run before every Test
         '''
-        self.new_article = Articles('CNN','Peter Polle','The tech scene in Africa-Is it the next big thing?','A look at various tech hubs in Africa and the impact they have on the worlds economy','techie.com','techie.com/7643t94.jpg','2018-04-11T07:57:16Z')
+        self.new_article = Articles('BBC','Maxwel 5','The current village world-Internet has turned the world','A general study about the positive impact of the internet towards learning and more other effect in the world')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_article,Articles))
 
     def test_to_check_instance_variables(self):
-        self.assertEquals(self.new_article.id,'CNN')
-        self.assertEquals(self.new_article.author,'Peter Polle')
-        self.assertEquals(self.new_article.title,'The tech scene in Africa-Is it the next big thing?')
-        self.assertEquals(self.new_article.description,'A look at various tech hubs in Africa and the impact they have on the worlds economy')
-        self.assertEquals(self.new_article.url,'techie.com')
-        self.assertEquals(self.new_article.image,'techie.com/7643t94.jpg')
-        self.assertEquals(self.new_article.date,'2018-04-11T07:57:16Z')
+        self.assertEquals(self.new_article.id,'BBC')
+        self.assertEquals(self.new_article.narrator,'Maxwel 5')
+        self.assertEquals(self.new_article.title,'The current village world-Internet has turned the world')
+        self.assertEquals(self.new_article.illustration,'A general study about the positive impact of the internet towards learning and more other effect in the world')
+        self.assertEquals(self.new_article.url,'bbc.com')
+        self.assertEquals(self.new_article.image,'http://newsimg.bbc.co.uk/media/images/39665000/jpg/_39665271_office_203.jpg')
+        self.assertEquals(self.new_article.date,'Tuesday, 6 January, 2004, 12:37 GMT')
