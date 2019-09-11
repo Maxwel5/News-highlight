@@ -6,6 +6,14 @@ Maxwel Wafula, currently a student at Moringa School taking *Software Developmen
 ## Dsscription
 This is a news highlight application that compiles all the news from various sources, global applications and moreso of various categories to the user, it also gives room for more research and any other relevant information.
 
+## Setup and Installation
+To setup this website:
+* Open terminal and type ` git clone https://github.com/Maxwel5/News-highlight.git`
+* Open the folder usig the followig command `cd News-highlight`
+* Write this command `./start.sh`
+* To edit write `code .` or `atom .`
+
+
 ## Making Requests
 Below are the necessity to achieve the full functionality of the project:
 * Python v 3.6

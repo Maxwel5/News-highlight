@@ -1,10 +1,17 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro %}
 
-    <link rel="stylesheet" href="{{url_for('static',filename='/css/styles.css')}}">
-
+    <!-- <link rel="stylesheet" href="{{url_for('static',filename='/css/styles.css')}}"> -->
+{% block head %}
+{{ super() }}
+<style>
+    .main{
+        background: rgba(0,0,0,.2);
+    }
+</style>
+{% endblock %}
 {% block content %}
-    <div class="container" style="background-color: grey">
+    <div class="container main" >
         <div class="row">
             <div class="jumbotron">
                 <h1 style="color:blue; font-size:70px; padding-left: 20%;">NEWS HEADLINES</h1>
@@ -13,7 +20,7 @@
         {% for news in name %}
             <div class="card">
                 <!-- <li>{{news.id}}</li> -->
-            <div class="col-lg-3">            
+            <div class="col-sm-6 col-md-4 col-lg-3">            
                 <h5 style="color:blue; font-size: 20px">{{news.title}}</h5> <br>
                 <small style="font-size: 15px">{{news.description | truncate(100) }}</small> <br>
                 <a class ='btn btn-primary btn-sm' href="{{news.url}}">Sources</a> 
