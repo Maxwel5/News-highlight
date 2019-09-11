@@ -1,7 +1,5 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro %}
-
-    <!-- <link rel="stylesheet" href="{{url_for('static',filename='/css/styles.css')}}"> -->
 {% block head %}
 {{ super() }}
 <style>
@@ -19,7 +17,6 @@
         
         {% for news in name %}
             <div class="card">
-                <!-- <li>{{news.id}}</li> -->
             <div class="col-sm-6 col-md-4 col-lg-3">            
                 <h5 style="color:blue; font-size: 20px">{{news.title}}</h5> <br>
                 <small style="font-size: 15px">{{news.description | truncate(100) }}</small> <br>
