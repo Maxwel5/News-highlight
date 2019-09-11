@@ -3,24 +3,22 @@ class News_Sources:
     This class is meant to define sources objects
     '''
 
-    def __init__(self,id,title,illustration,url,group,nation,language):
+    def __init__(self,id,title,description,url):
         self.id = id
         self.title = title
-        self.illustration = illustration
+        self.description = description
         self.url = url
-        self.group = group
-        self.nation = nation
-        self.language = language
 
 class Articles:
     '''
     Defining articles in article class
     '''
-    def __init__(self,id,narrator,title,illustration,url,image,date):
+    def __init__(self,id,author,title,description,url,image,date,content):
         self.id = id
-        self.narrator = narrator
+        self.author = author
         self.title = title
-        self.illustration = illustration
+        self.description = description
         self.url = url
         self.image = image
         self.date = date
+        self.content = content

@@ -1,43 +1,28 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro %}
 
-<!-- Styles block -->
+    <link rel="stylesheet" href="{{url_for('static',filename='/css/styles.css')}}">
 
-{% block styles%}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-{% endblock %}
-
-<!-- Content block -->
 {% block content %}
-<div class="container">
-    <form>
-        <input type="text" name="news_quert" placeholder="Search for a News" class="form-control">
-        <input type="submit"  value="Submit" class="btn btn-default">
-    </form>
-</div>
+    <div class="container" style="background-color: grey">
+        <div class="row">
+            <div class="jumbotron">
+                <h1 style="color:blue; font-size:70px; padding-left: 20%;">NEWS HEADLINES</h1>
+        </div>
+        
+        {% for news in name %}
+            <div class="card">
+                <!-- <li>{{news.id}}</li> -->
+            <div class="col-lg-3">            
+                <h5 style="color:blue; font-size: 20px">{{news.title}}</h5> <br>
+                <small style="font-size: 15px">{{news.description | truncate(100) }}</small> <br>
+                <a class ='btn btn-primary btn-sm' href="{{news.url}}">Sources</a> 
+                <a  class ='btn btn-primary btn-sm' href="/news/{{news.id}}">Articles</a>
+                </div> 
+            </div>
+        {% endfor %}
+    
+        </div>
+    </div> 
 
-<div class="container">
-<!-- Business News -->
-<h3> Business News Sources</h3>
-<ul>
-    {{ macro.displayMovieList(bussiness_sources)}}
-</ul>
-<!-- World News  -->
-<h3> World News Sources </h3>
-<ul>
-    {{ macro.displayMovieList(world_sources)}}
-</ul>
-<!-- Entertainment News -->
-<h3> Entertainment News Sources </h3>
-<ul>
-    {{ macro.displayMovieList(entertainment_sources)}}
-</ul>
-
-<!-- Sports News -->
-<h3> Sports News Sources </h3>
-<ul>
-    {{ macro.displayMovieList(sports_sources)}}
-</ul>
-</div>
-{%endblock%}
+{%endblock%} 
